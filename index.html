@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rakavi Ramasubbu — Java Developer with experience in Java applications, production support, SQL, cloud, and troubleshooting.">
+  <title>Rakavi Ramasubbu | Java Developer</title>
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2e;
+      --text: #eef2ff;
+      --muted: #aab5cf;
+      --accent: #75e0c1;
+      --accent-2: #8bb8ff;
+      --line: rgba(255,255,255,.12);
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 15% 0%, #1a2b4a 0, transparent 35%), var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,16,32,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -.03em;
+      font-size: 1.05rem;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 88px 0 70px;
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+      margin: 15px 0 20px;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero p {
+      max-width: 690px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 17px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #09201a;
+      border-color: var(--accent);
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .hero-card {
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(117,224,193,.12), rgba(139,184,255,.08));
+      box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    }
+
+    .hero-card .monogram {
+      width: 76px;
+      height: 76px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: #09201a;
+      font-size: 1.7rem;
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    .hero-card h2 { margin: 0 0 8px; font-size: 1.25rem; }
+    .hero-card p { margin: 0; font-size: .95rem; }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .fact {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      padding: 14px;
+      border-radius: 13px;
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--accent);
+      font-size: 1.15rem;
+    }
+
+    .fact span { color: var(--muted); font-size: .82rem; }
+
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading { margin-bottom: 28px; }
+
+    .section-heading h2 {
+      margin: 4px 0 8px;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -.04em;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 23px;
+      background: rgba(18,26,46,.82);
+    }
+
+    .card h3 { margin: 0 0 8px; font-size: 1.12rem; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 17px;
+    }
+
+    .tag {
+      border: 1px solid rgba(117,224,193,.24);
+      background: rgba(117,224,193,.08);
+      color: #c9fff0;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: .82rem;
+    }
+
+    .timeline {
+      border-left: 2px solid rgba(117,224,193,.45);
+      padding-left: 24px;
+      margin-left: 7px;
+    }
+
+    .timeline-item { position: relative; padding-bottom: 26px; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -32px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(117,224,193,.12);
+    }
+
+    .meta {
+      color: var(--accent);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    ul { color: var(--muted); padding-left: 21px; margin-bottom: 0; }
+    li + li { margin-top: 7px; }
+
+    .project-note {
+      font-size: .84rem;
+      color: #c6d0e6 !important;
+      margin-top: 12px !important;
+    }
+
+    .contact-panel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(120deg, rgba(117,224,193,.1), rgba(139,184,255,.1));
+    }
+
+    .contact-panel h3 { margin: 0 0 6px; }
+    .contact-panel p { margin: 0; color: var(--muted); }
+
+    footer {
+      padding: 26px 0 38px;
+      color: var(--muted);
+      font-size: .88rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+        gap: 30px;
+      }
+
+      .nav-links { gap: 12px; font-size: .82rem; }
+      .brand { max-width: 180px; }
+      .grid { grid-template-columns: 1fr; }
+      .quick-facts { grid-template-columns: 1fr; }
+
+      .contact-panel {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container { width: min(100% - 28px, var(--max)); }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links { padding-bottom: 3px; }
+      .hero { padding: 45px 0; }
+      section { padding: 48px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">Rakavi Ramasubbu <span>| Java Developer</span></a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container hero" id="home">
+      <div>
+        <div class="eyebrow">Java Application Developer · Production Operations</div>
+
+        <h1>Hi, I'm <span>Rakavi Ramasubbu.</span></h1>
+
+        <p>
+          A technology professional with 4.10+ years of experience supporting and enhancing
+          Java-based enterprise applications. I work across application troubleshooting,
+          API integration, SQL, production support, root cause analysis, and cloud platforms.
+        </p>
+
+        <div class="actions">
+          <a class="button primary" href="#projects">Explore my work</a>
+          <a class="button" href="#contact">Contact me</a>
+        </div>
+
+        <div class="quick-facts">
+          <div class="fact"><strong>4.7+ years</strong><span>IT experience</span></div>
+          <div class="fact"><strong>Java & SQL</strong><span>Core technologies</span></div>
+          <div class="fact"><strong>Cloud</strong><span>AWS and Azure exposure</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="monogram">RR</div>
+        <h2>Application-focused problem solver</h2>
+
+        <p>
+          Experienced in incident management, debugging, release support, database validation,
+          application monitoring, and collaborating with business and technical teams.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Oracle SQL</span>
+          <span class="tag">Linux</span>
+          <span class="tag">AWS</span>
+        </div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">A little about me</div>
+          <h2>Building reliable applications and solving problems</h2>
+
+          <p>
+            I have worked on enterprise Life Sciences applications, balancing production
+            stability with development, testing, and continuous improvement. I enjoy understanding
+            how systems work end to end and finding practical solutions to technical issues.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>What I do</h3>
+            <ul>
+              <li>Develop and support Java-based applications and REST API integrations.</li>
+              <li>Investigate incidents, analyze logs, perform root cause analysis, and coordinate fixes.</li>
+              <li>Write and validate SQL queries and support database-related troubleshooting.</li>
+              <li>Support deployments, release activities, monitoring, and technical documentation.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>How I work</h3>
+            <ul>
+              <li>Prioritize service reliability and timely incident resolution.</li>
+              <li>Collaborate with users, developers, infrastructure teams, and stakeholders.</li>
+              <li>Use structured troubleshooting and clear documentation.</li>
+              <li>Keep learning new tools and development practices.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Technical toolkit</div>
+          <h2>Skills and technologies</h2>
+          <p>Technologies used across application development, support, database work, and operations.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Programming & Frameworks</h3>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">REST API</span>
+              <span class="tag">Maven</span>
+              <span class="tag">Gradle</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Databases</h3>
+            <div class="tags">
+              <span class="tag">Oracle SQL</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">SQL Server</span>
+              <span class="tag">Query troubleshooting</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Cloud & Systems</h3>
+            <div class="tags">
+              <span class="tag">AWS EC2</span>
+              <span class="tag">AWS S3</span>
+              <span class="tag">Azure</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Shell scripting</span>
+              <span class="tag">Docker</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Tools & Operations</h3>
+            <div class="tags">
+              <span class="tag">ServiceNow</span>
+              <span class="tag">Git</span>
+              <span class="tag">SVN</span>
+              <span class="tag">Postman</span>
+              <span class="tag">Eclipse</span>
+              <span class="tag">PuTTY</span>
+              <span class="tag">WinSCP</span>
+              <span class="tag">Tomcat</span>
+              <span class="tag">Elasticsearch</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Career journey</div>
+          <h2>Professional experience</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="meta">December 2021 – Present</div>
+            <h3>System Engineer / Application Development & Application Management</h3>
+            <p><strong>Tata Consultancy Services (TCS)</strong> · External client</p>
+
+            <ul>
+              <li>Manage 3 applications and provide support for 7 additional Java-based Life Sciences applications in development.</li>
+              <li>Handle incident management, service requests, production monitoring, user access, and application troubleshooting.</li>
+              <li>Support enterprise applications related to chemical search, ordering, inventory, and authentication/authorization.</li>
+              <li>Work with Java, SQL, Linux, shell scripts, logs, and monitoring tools to investigate and resolve issues.</li>
+              <li>Contribute to development, testing, debugging, release activities, root cause analysis, and documentation.</li>
+              <li>Coordinate with cross-functional teams to maintain application availability and resolve production issues.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Selected work</div>
+          <h2>Projects and practical work</h2>
+          <p>
+            Examples of technical areas relevant to my experience. Add repository links
+            when the corresponding code or documentation is published.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>REST API Development</h3>
+            <p>
+              Practice project focused on building REST endpoints with Java and Spring Boot,
+              handling requests, validating data, and integrating with a relational database.
+            </p>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">REST</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+            <p class="project-note">Repository link to be added when published.</p>
+          </article>
+
+          <article class="card">
+            <h3>Application Monitoring & Troubleshooting</h3>
+            <p>
+              Operational approach for checking service health, reviewing logs, validating
+              ports and processes, and escalating or resolving application incidents.
+            </p>
+            <div class="tags">
+              <span class="tag">Linux</span>
+              <span class="tag">Shell scripting</span>
+              <span class="tag">Monitoring</span>
+              <span class="tag">RCA</span>
+            </div>
+            <p class="project-note">Documentation or script link to be added when published.</p>
+          </article>
+
+          <article class="card">
+            <h3>SQL Query Collection</h3>
+            <p>
+              Examples of joins, aggregation, subqueries, ranking, and common interview-style
+              database problems, with attention to correctness and readability.
+            </p>
+            <div class="tags">
+              <span class="tag">Oracle SQL</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Joins</span>
+              <span class="tag">Window functions</span>
+            </div>
+            <p class="project-note">Repository link to be added when published.</p>
+          </article>
+
+          <article class="card">
+            <h3>Production Support Runbook</h3>
+            <p>
+              A structured troubleshooting guide covering incident triage, application status
+              checks, log analysis, dependency checks, communication, and RCA notes.
+            </p>
+            <div class="tags">
+              <span class="tag">Incident management</span>
+              <span class="tag">ServiceNow</span>
+              <span class="tag">Documentation</span>
+            </div>
+            <p class="project-note">Documentation link to be added when published.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Education</div>
+          <h2>Academic background</h2>
+        </div>
+
+        <article class="card">
+          <h3>Bachelor of Engineering — Electronics and Communication Engineering</h3>
+          <p>Saranathan College of Engineering, Trichy</p>
+          <div class="tags">
+            <span class="tag">2017 – 2021</span>
+            <span class="tag">CGPA: 7.66</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Get in touch</div>
+          <h2>Let's connect</h2>
+          <p>Interested in Java development, application engineering, and production support opportunities.</p>
+        </div>
+
+        <div class="contact-panel">
+          <div>
+            <h3>Rakavi Ramasubbu</h3>
+            <p>Java Developer · Application Support & Engineering</p>
+            <p style="margin-top:8px">
+              www.linkedin.com/in/rakavi-ramasubbu
+            </p>
+          </div>
+
+          <a class="button primary" href="https://github.com/rakavi08"
+             target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Rakavi Ramasubbu. Built with HTML and CSS.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
