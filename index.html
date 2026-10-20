@@ -1,626 +1,1175 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Rakavi Ramasubbu — Java Developer with experience in Java applications, production support, SQL, cloud, and troubleshooting.">
-  <title>Rakavi Ramasubbu | Java Developer</title>
+  <meta name="theme-color" content="#f7f6f2">
+
+  <title>Rakavi Ramasubbu | Java Application Developer</title>
+  <meta name="description" content="Rakavi Ramasubbu — Java Application Developer with experience in enterprise applications, production support, Java, SQL, Linux and cloud technologies.">
+  <meta name="author" content="Rakavi Ramasubbu">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b1020;
-      --panel: #121a2e;
-      --text: #eef2ff;
-      --muted: #aab5cf;
-      --accent: #75e0c1;
-      --accent-2: #8bb8ff;
-      --line: rgba(255,255,255,.12);
-      --max: 1100px;
+      --navy: #142746;
+      --navy-light: #203b60;
+      --gold: #b68a46;
+      --gold-light: #f5ead5;
+      --ivory: #f7f6f2;
+      --white: #ffffff;
+      --text: #344258;
+      --muted: #7b8493;
+      --border: #e8e8e4;
+      --shadow: 0 8px 30px rgba(20, 39, 70, 0.045);
+      --radius: 18px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
     body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at 15% 0%, #1a2b4a 0, transparent 35%), var(--bg);
+      font-family: "DM Sans", sans-serif;
       color: var(--text);
+      background: var(--ivory);
       line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--accent); }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
     .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: auto;
+      width: min(1240px, calc(100% - 40px));
+      margin-inline: auto;
     }
 
-    header {
+    .navbar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(11,16,32,.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(20, 39, 70, 0.06);
     }
 
-    nav {
+    .nav-inner {
       min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand {
+      flex-shrink: 0;
+      color: var(--navy);
+      font-family: "Manrope", sans-serif;
       font-weight: 800;
-      letter-spacing: -.03em;
-      font-size: 1.05rem;
+      font-size: 18px;
+      line-height: 1.35;
     }
 
-    .brand span { color: var(--accent); }
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font: 400 12px "DM Sans", sans-serif;
+    }
 
     .nav-links {
       display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      font-size: .92rem;
-      color: var(--muted);
-    }
-
-    .hero {
-      padding: 88px 0 70px;
-      display: grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 46px;
       align-items: center;
+      gap: 25px;
     }
 
-    .eyebrow {
-      color: var(--accent);
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-size: .78rem;
+    .nav-links a {
+      font-size: 13px;
+      transition: color 0.2s;
     }
 
-    h1 {
-      font-size: clamp(2.6rem, 6vw, 4.6rem);
-      line-height: 1.08;
-      letter-spacing: -.055em;
-      margin: 15px 0 20px;
-    }
-
-    h1 span { color: var(--accent); }
-
-    .hero p {
-      max-width: 690px;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold);
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 11px 17px;
+      gap: 9px;
+      min-height: 43px;
+      padding: 10px 19px;
+      border: 1px solid transparent;
       border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: white;
+      background: var(--navy);
+    }
+
+    .button-primary:hover {
+      background: var(--navy-light);
+    }
+
+    .button-outline {
+      color: var(--navy);
+      border-color: var(--navy);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .button-gold {
+      color: #241c10;
+      background: #e8c783;
+    }
+
+    .button-light {
+      color: white;
+      border-color: rgba(255,255,255,.2);
+      background: transparent;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: #f0eee8;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg,
+          rgba(248,247,243,.99) 0%,
+          rgba(248,247,243,.96) 35%,
+          rgba(248,247,243,.70) 53%,
+          rgba(248,247,243,.06) 100%),
+        url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1900&q=85")
+        center 48% / cover no-repeat;
+    }
+
+    .hero-inner {
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      padding-block: 55px;
+    }
+
+    .hero-copy {
+      width: min(520px, 55%);
+    }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 11px;
       font-weight: 700;
-      border: 1px solid var(--line);
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    .button.primary {
-      background: var(--accent);
-      color: #09201a;
-      border-color: var(--accent);
+    h1, h2, h3 {
+      font-family: "Manrope", sans-serif;
+      color: var(--navy);
+      line-height: 1.25;
     }
 
-    .button:hover { transform: translateY(-1px); }
-
-    .hero-card {
-      padding: 27px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: linear-gradient(145deg, rgba(117,224,193,.12), rgba(139,184,255,.08));
-      box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    h1 {
+      margin-bottom: 5px;
+      font-size: clamp(34px, 4vw, 47px);
+      font-weight: 800;
+      letter-spacing: -1.6px;
     }
 
-    .hero-card .monogram {
-      width: 76px;
-      height: 76px;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      background: var(--accent);
-      color: #09201a;
-      font-size: 1.7rem;
-      font-weight: 900;
-      margin-bottom: 22px;
+    .hero-role {
+      margin-bottom: 15px;
+      color: var(--navy);
+      font-size: clamp(17px, 2vw, 21px);
+      font-weight: 700;
     }
 
-    .hero-card h2 { margin: 0 0 8px; font-size: 1.25rem; }
-    .hero-card p { margin: 0; font-size: .95rem; }
+    .hero-description {
+      max-width: 460px;
+      margin-bottom: 23px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
 
-    .quick-facts {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
     }
 
-    .fact {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-      padding: 14px;
-      border-radius: 13px;
+    /* Highlights */
+
+    .stats {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: -22px;
+      padding: 17px;
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.96);
+      box-shadow: var(--shadow);
     }
 
-    .fact strong {
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 9px;
+    }
+
+    .stat-icon {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--gold);
+      background: #faf5eb;
+      font-size: 21px;
+    }
+
+    .stat strong {
       display: block;
-      color: var(--accent);
-      font-size: 1.15rem;
+      color: var(--navy);
+      font: 800 20px "Manrope", sans-serif;
+      line-height: 1.35;
     }
 
-    .fact span { color: var(--muted); font-size: .82rem; }
-
-    section {
-      padding: 64px 0;
-      border-top: 1px solid var(--line);
+    .stat span:last-child {
+      display: block;
+      font-size: 12px;
+      line-height: 1.5;
     }
 
-    .section-heading { margin-bottom: 28px; }
+    /* Content cards */
 
-    .section-heading h2 {
-      margin: 4px 0 8px;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      letter-spacing: -.04em;
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding-top: 16px;
+      padding-bottom: 16px;
     }
 
-    .section-heading p {
+    .panel {
+      min-width: 0;
+      padding: 23px;
+      border: 1px solid rgba(20,39,70,.045);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .panel-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .panel-heading h2 {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .small-link {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .small-link:hover {
+      color: var(--navy);
+    }
+
+    /* About */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 135px;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .about-copy p {
+      margin-bottom: 13px;
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    .about-visual {
+      display: grid;
+      width: 135px;
+      height: 165px;
+      place-items: center;
+      border-radius: 24px 24px 24px 55px;
+      background:
+        radial-gradient(circle at 80% 18%, #edd5a4 0 17%, transparent 18%),
+        linear-gradient(145deg, #f6eee0, #e5eaf0);
+      color: var(--navy);
+      font: 800 40px "Manrope", sans-serif;
+    }
+
+    /* Skills */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .skill {
+      display: flex;
+      min-height: 76px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 8px 4px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: linear-gradient(145deg, #fff, #fbfbfa);
+      text-align: center;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .skill:hover {
+      transform: translateY(-3px);
+      border-color: #d5bb8a;
+    }
+
+    .skill-icon {
+      color: var(--gold);
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .skill-name {
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Experience */
+
+    .timeline {
+      position: relative;
+      padding-left: 27px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 10px;
+      bottom: 8px;
+      left: 7px;
+      width: 2px;
+      background: #e4e6e9;
+      content: "";
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 23px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      position: absolute;
+      top: 5px;
+      left: -26px;
+      width: 13px;
+      height: 13px;
+      border: 3px solid white;
+      border-radius: 50%;
+      background: #d9b36b;
+      box-shadow: 0 0 0 1px #e9dfca;
+      content: "";
+    }
+
+    .timeline-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .timeline h3 {
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+
+    .timeline .company {
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .timeline .date {
       color: var(--muted);
-      max-width: 720px;
-      margin: 0;
+      font-size: 11px;
+      white-space: nowrap;
     }
 
-    .grid {
+    .timeline p,
+    .timeline li {
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .timeline ul {
+      padding-left: 15px;
+      margin-top: 5px;
+    }
+
+    /* Projects */
+
+    .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 12px;
     }
 
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 17px;
-      padding: 23px;
-      background: rgba(18,26,46,.82);
+    .project {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      padding: 15px;
+      border: 1px solid #e0e3e8;
+      border-radius: 13px;
+      background: linear-gradient(150deg, #fff, #fcfcfb);
+      transition: transform .2s, box-shadow .2s;
     }
 
-    .card h3 { margin: 0 0 8px; font-size: 1.12rem; }
-    .card p { margin: 0; color: var(--muted); }
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 9px 22px rgba(20,39,70,.07);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+
+    .project-icon {
+      display: grid;
+      width: 35px;
+      height: 35px;
+      flex-shrink: 0;
+      place-items: center;
+      border-radius: 10px;
+      background: #eef2fb;
+      color: var(--navy);
+      font-size: 17px;
+    }
+
+    .project h3 {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .project p {
+      margin-bottom: 12px;
+      font-size: 11px;
+      line-height: 1.8;
+    }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 17px;
+      gap: 5px;
+      margin-top: auto;
+      margin-bottom: 13px;
     }
 
     .tag {
-      border: 1px solid rgba(117,224,193,.24);
-      background: rgba(117,224,193,.08);
-      color: #c9fff0;
-      border-radius: 999px;
-      padding: 5px 10px;
-      font-size: .82rem;
+      padding: 3px 7px;
+      border-radius: 5px;
+      background: #edf0fa;
+      color: #263c6a;
+      font-size: 10px;
+      font-weight: 500;
     }
 
-    .timeline {
-      border-left: 2px solid rgba(117,224,193,.45);
-      padding-left: 24px;
-      margin-left: 7px;
-    }
-
-    .timeline-item { position: relative; padding-bottom: 26px; }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -32px;
-      top: 8px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px rgba(117,224,193,.12);
-    }
-
-    .meta {
-      color: var(--accent);
-      font-size: .9rem;
+    .project-link {
+      align-self: flex-start;
+      color: var(--gold);
+      font-size: 11px;
       font-weight: 700;
     }
 
-    ul { color: var(--muted); padding-left: 21px; margin-bottom: 0; }
-    li + li { margin-top: 7px; }
+    /* Contact footer */
 
-    .project-note {
-      font-size: .84rem;
-      color: #c6d0e6 !important;
-      margin-top: 12px !important;
+    .footer {
+      margin: 0 auto 18px;
+      padding: 24px 34px;
+      border-radius: var(--radius);
+      background: linear-gradient(120deg, #14243a, #1a2b43);
+      color: white;
     }
 
-    .contact-panel {
+    .footer-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 24px;
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: linear-gradient(120deg, rgba(117,224,193,.1), rgba(139,184,255,.1));
+      justify-content: space-between;
+      gap: 25px;
     }
 
-    .contact-panel h3 { margin: 0 0 6px; }
-    .contact-panel p { margin: 0; color: var(--muted); }
+    .footer h2 {
+      margin-bottom: 4px;
+      color: white;
+      font-size: 21px;
+    }
 
-    footer {
-      padding: 26px 0 38px;
+    .footer p {
+      color: #d2d9e3;
+      font-size: 12px;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-actions .button {
+      min-height: 40px;
+      padding: 9px 12px;
+      font-size: 11px;
+    }
+
+    .copyright {
+      padding: 0 0 22px;
       color: var(--muted);
-      font-size: .88rem;
       text-align: center;
+      font-size: 11px;
     }
 
-    @media (max-width: 760px) {
-      .hero {
+    /* Scroll reveal */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Tablet */
+
+    @media (max-width: 1000px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-resume {
+        display: none;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr 105px;
+        gap: 13px;
+      }
+
+      .about-visual {
+        width: 105px;
+        height: 135px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .panel {
+        padding: 19px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /* Mobile */
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 28px, 540px);
+      }
+
+      .nav-inner {
+        min-height: 65px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 20px 16px;
+        border-bottom: 1px solid var(--border);
+        background: white;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 11px 4px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(248,247,243,.97),
+            rgba(248,247,243,.84)),
+          url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80")
+          center / cover no-repeat;
+      }
+
+      .hero-inner {
+        min-height: 350px;
+        padding-block: 42px;
+      }
+
+      .hero-copy {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 35px;
+        letter-spacing: -1px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .stats {
+        gap: 5px;
+        padding: 10px;
+      }
+
+      .stat {
+        gap: 8px;
+        padding: 7px 3px;
+      }
+
+      .stat-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+      }
+
+      .stat strong {
+        font-size: 16px;
+      }
+
+      .stat span:last-child {
+        font-size: 10px;
+      }
+
+      .content-grid {
         grid-template-columns: 1fr;
-        padding-top: 60px;
-        gap: 30px;
+        gap: 13px;
       }
 
-      .nav-links { gap: 12px; font-size: .82rem; }
-      .brand { max-width: 180px; }
-      .grid { grid-template-columns: 1fr; }
-      .quick-facts { grid-template-columns: 1fr; }
+      .panel {
+        padding: 19px;
+      }
 
-      .contact-panel {
-        align-items: flex-start;
-        flex-direction: column;
+      .about-layout {
+        grid-template-columns: 1fr 90px;
+      }
+
+      .about-visual {
+        width: 90px;
+        height: 120px;
+        font-size: 30px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        padding: 23px 20px;
+      }
+
+      .footer-actions {
+        width: 100%;
+      }
+
+      .footer-actions .button {
+        flex: 1 1 auto;
       }
     }
 
-    @media (max-width: 480px) {
-      .container { width: min(100% - 28px, var(--max)); }
-
-      nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 14px 0;
+    @media (max-width: 380px) {
+      .container {
+        width: calc(100% - 20px);
       }
 
-      .nav-links { padding-bottom: 3px; }
-      .hero { padding: 45px 0; }
-      section { padding: 48px 0; }
+      .hero-actions .button {
+        padding-inline: 12px;
+        font-size: 12px;
+      }
+
+      .stat-icon {
+        display: none;
+      }
+
+      .panel {
+        padding: 15px;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        display: none;
+      }
+
+      .timeline-top {
+        flex-direction: column;
+        gap: 2px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <nav class="container" aria-label="Main navigation">
-      <a class="brand" href="#home">Rakavi Ramasubbu <span>| Java Developer</span></a>
 
-      <div class="nav-links">
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        Rakavi Ramasubbu
+        <span>Java Application Developer</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a class="active" href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-      </div>
-    </nav>
+      </nav>
+
+      <a class="button button-primary nav-resume"
+         href="#contact">↓ &nbsp; Download Resume</a>
+    </div>
   </header>
 
   <main>
-    <div class="container hero" id="home">
-      <div>
-        <div class="eyebrow">Java Application Developer · Production Operations</div>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Application Support &nbsp;|&nbsp; Java Development &nbsp;|&nbsp; Cloud</p>
 
-        <h1>Hi, I'm <span>Rakavi Ramasubbu.</span></h1>
+          <h1>Rakavi Ramasubbu</h1>
+          <p class="hero-role">Java Application Developer</p>
 
-        <p>
-          A technology professional with 4.10+ years of experience supporting and enhancing
-          Java-based enterprise applications. I work across application troubleshooting,
-          API integration, SQL, production support, root cause analysis, and cloud platforms.
-        </p>
-
-        <div class="actions">
-          <a class="button primary" href="#projects">Explore my work</a>
-          <a class="button" href="#contact">Contact me</a>
-        </div>
-
-        <div class="quick-facts">
-          <div class="fact"><strong>4.7+ years</strong><span>IT experience</span></div>
-          <div class="fact"><strong>Java & SQL</strong><span>Core technologies</span></div>
-          <div class="fact"><strong>Cloud</strong><span>AWS and Azure exposure</span></div>
-        </div>
-      </div>
-
-      <aside class="hero-card">
-        <div class="monogram">RR</div>
-        <h2>Application-focused problem solver</h2>
-
-        <p>
-          Experienced in incident management, debugging, release support, database validation,
-          application monitoring, and collaborating with business and technical teams.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Java</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Oracle SQL</span>
-          <span class="tag">Linux</span>
-          <span class="tag">AWS</span>
-        </div>
-      </aside>
-    </div>
-
-    <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">A little about me</div>
-          <h2>Building reliable applications and solving problems</h2>
-
-          <p>
-            I have worked on enterprise Life Sciences applications, balancing production
-            stability with development, testing, and continuous improvement. I enjoy understanding
-            how systems work end to end and finding practical solutions to technical issues.
+          <p class="hero-description">
+            Application support and management professional with experience
+            in Java-based enterprise applications in the Life Sciences domain.
+            Skilled in troubleshooting, SQL, Linux, cloud technologies and
+            improving application reliability.
           </p>
-        </div>
 
-        <div class="grid">
-          <article class="card">
-            <h3>What I do</h3>
-            <ul>
-              <li>Develop and support Java-based applications and REST API integrations.</li>
-              <li>Investigate incidents, analyze logs, perform root cause analysis, and coordinate fixes.</li>
-              <li>Write and validate SQL queries and support database-related troubleshooting.</li>
-              <li>Support deployments, release activities, monitoring, and technical documentation.</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>How I work</h3>
-            <ul>
-              <li>Prioritize service reliability and timely incident resolution.</li>
-              <li>Collaborate with users, developers, infrastructure teams, and stakeholders.</li>
-              <li>Use structured troubleshooting and clear documentation.</li>
-              <li>Keep learning new tools and development practices.</li>
-            </ul>
-          </article>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">✉ &nbsp; Get In Touch</a>
+            <a class="button button-outline" href="#projects">View My Work &nbsp; →</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Technical toolkit</div>
-          <h2>Skills and technologies</h2>
-          <p>Technologies used across application development, support, database work, and operations.</p>
+    <!-- Highlights -->
+    <section class="container stats reveal" aria-label="Professional highlights">
+      <div class="stat">
+        <span class="stat-icon">♧</span>
+        <div>
+          <strong>4.6+</strong>
+          <span>Years Experience</span>
         </div>
+      </div>
 
-        <div class="grid">
-          <article class="card">
-            <h3>Programming & Frameworks</h3>
-            <div class="tags">
-              <span class="tag">Java</span>
-              <span class="tag">Spring Boot</span>
-              <span class="tag">REST API</span>
-              <span class="tag">Maven</span>
-              <span class="tag">Gradle</span>
-            </div>
-          </article>
+      <div class="stat">
+        <span class="stat-icon">▱</span>
+        <div>
+          <strong>10+</strong>
+          <span>Applications Managed & Supported</span>
+        </div>
+      </div>
 
-          <article class="card">
-            <h3>Databases</h3>
-            <div class="tags">
-              <span class="tag">Oracle SQL</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">SQL Server</span>
-              <span class="tag">Query troubleshooting</span>
-            </div>
-          </article>
+      <div class="stat">
+        <span class="stat-icon">♙</span>
+        <div>
+          <strong>15+</strong>
+          <span>Integrated Applications</span>
+        </div>
+      </div>
 
-          <article class="card">
-            <h3>Cloud & Systems</h3>
-            <div class="tags">
-              <span class="tag">AWS EC2</span>
-              <span class="tag">AWS S3</span>
-              <span class="tag">Azure</span>
-              <span class="tag">Linux</span>
-              <span class="tag">Shell scripting</span>
-              <span class="tag">Docker</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3>Tools & Operations</h3>
-            <div class="tags">
-              <span class="tag">ServiceNow</span>
-              <span class="tag">Git</span>
-              <span class="tag">SVN</span>
-              <span class="tag">Postman</span>
-              <span class="tag">Eclipse</span>
-              <span class="tag">PuTTY</span>
-              <span class="tag">WinSCP</span>
-              <span class="tag">Tomcat</span>
-              <span class="tag">Elasticsearch</span>
-            </div>
-          </article>
+      <div class="stat">
+        <span class="stat-icon">☁</span>
+        <div>
+          <strong>Multi-Cloud</strong>
+          <span>AWS &nbsp;|&nbsp; Azure</span>
         </div>
       </div>
     </section>
 
-    <section id="experience">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Career journey</div>
-          <h2>Professional experience</h2>
+    <div class="container content-grid">
+
+      <!-- About -->
+      <section class="panel reveal" id="about">
+        <div class="panel-heading">
+          <h2>About Me</h2>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-copy">
+            <p>
+              I am a Java Application Developer with experience in application
+              support, application management and enterprise systems in the
+              Life Sciences domain.
+            </p>
+            <p>
+              My technical experience includes Java, Oracle SQL, PostgreSQL,
+              Linux, shell scripting, AWS and Azure. I enjoy solving complex
+              production issues, performing root cause analysis and improving
+              system reliability.
+            </p>
+            <a class="small-link" href="#experience">Explore My Experience →</a>
+          </div>
+
+          <div class="about-visual" aria-label="Rakavi initials">RR</div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="panel reveal" id="skills">
+        <div class="panel-heading">
+          <h2>Skills</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill"><span class="skill-icon">☕</span><span class="skill-name">Java</span></div>
+          <div class="skill"><span class="skill-icon">◉</span><span class="skill-name">Spring Boot</span></div>
+          <div class="skill"><span class="skill-icon">▤</span><span class="skill-name">Oracle SQL</span></div>
+          <div class="skill"><span class="skill-icon">◉</span><span class="skill-name">PostgreSQL</span></div>
+          <div class="skill"><span class="skill-icon">⌘</span><span class="skill-name">Linux</span></div>
+          <div class="skill"><span class="skill-icon">$_</span><span class="skill-name">Shell Scripting</span></div>
+          <div class="skill"><span class="skill-icon">aws</span><span class="skill-name">AWS</span></div>
+          <div class="skill"><span class="skill-icon">A</span><span class="skill-name">Azure</span></div>
+          <div class="skill"><span class="skill-icon">▦</span><span class="skill-name">Docker</span></div>
+          <div class="skill"><span class="skill-icon">⌕</span><span class="skill-name">Elasticsearch</span></div>
+          <div class="skill"><span class="skill-icon">◈</span><span class="skill-name">ServiceNow</span></div>
+          <div class="skill"><span class="skill-icon">⑂</span><span class="skill-name">Git & GitHub</span></div>
+        </div>
+      </section>
+
+      <!-- Experience and Education -->
+      <section class="panel reveal" id="experience">
+        <div class="panel-heading">
+          <h2>Experience & Education</h2>
         </div>
 
         <div class="timeline">
-          <div class="timeline-item">
-            <div class="meta">December 2021 – Present</div>
-            <h3>System Engineer / Application Development & Application Management</h3>
-            <p><strong>Tata Consultancy Services (TCS)</strong> · External client</p>
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div>
+                <h3>Application Manager / Application Support Engineer</h3>
+                <p class="company">Tata Consultancy Services (TCS)</p>
+              </div>
+              <span class="date">4.6+ years</span>
+            </div>
 
             <ul>
-              <li>Manage 3 applications and provide support for 7 additional Java-based Life Sciences applications in development.</li>
-              <li>Handle incident management, service requests, production monitoring, user access, and application troubleshooting.</li>
-              <li>Support enterprise applications related to chemical search, ordering, inventory, and authentication/authorization.</li>
-              <li>Work with Java, SQL, Linux, shell scripts, logs, and monitoring tools to investigate and resolve issues.</li>
-              <li>Contribute to development, testing, debugging, release activities, root cause analysis, and documentation.</li>
-              <li>Coordinate with cross-functional teams to maintain application availability and resolve production issues.</li>
+              <li>Managing 3 applications and supporting 7 additional applications.</li>
+              <li>Handling L2/L3 support, incidents and service requests.</li>
+              <li>Supporting Java-based enterprise applications in the Life Sciences domain.</li>
+              <li>Working with Oracle SQL, PostgreSQL, Linux and cloud infrastructure.</li>
+              <li>Performing root cause analysis, monitoring and process improvements.</li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+          </article>
 
-    <section id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Selected work</div>
-          <h2>Projects and practical work</h2>
-          <p>
-            Examples of technical areas relevant to my experience. Add repository links
-            when the corresponding code or documentation is published.
-          </p>
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div>
+                <h3>Bachelor of Engineering — Electronics and Communication</h3>
+                <p class="company">Saranathan College of Engineering, Trichy</p>
+              </div>
+            </div>
+            <p>CGPA is intentionally omitted.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="panel reveal" id="projects">
+        <div class="panel-heading">
+          <h2>Featured Projects</h2>
         </div>
 
-        <div class="grid">
-          <article class="card">
-            <h3>REST API Development</h3>
+        <div class="projects-grid">
+          <article class="project">
+            <div class="project-top">
+              <span class="project-icon">⬡</span>
+              <h3>Centralized Authentication Platform</h3>
+            </div>
+
             <p>
-              Practice project focused on building REST endpoints with Java and Spring Boot,
-              handling requests, validating data, and integrating with a relational database.
+              Enterprise authentication and authorization platform integrating
+              multiple applications using LDAP authentication and database
+              validations.
             </p>
+
             <div class="tags">
               <span class="tag">Java</span>
-              <span class="tag">Spring Boot</span>
-              <span class="tag">REST</span>
-              <span class="tag">PostgreSQL</span>
-            </div>
-            <p class="project-note">Repository link to be added when published.</p>
-          </article>
-
-          <article class="card">
-            <h3>Application Monitoring & Troubleshooting</h3>
-            <p>
-              Operational approach for checking service health, reviewing logs, validating
-              ports and processes, and escalating or resolving application incidents.
-            </p>
-            <div class="tags">
+              <span class="tag">LDAP</span>
+              <span class="tag">Oracle</span>
               <span class="tag">Linux</span>
-              <span class="tag">Shell scripting</span>
-              <span class="tag">Monitoring</span>
-              <span class="tag">RCA</span>
+              <span class="tag">Security</span>
             </div>
-            <p class="project-note">Documentation or script link to be added when published.</p>
+
+            <a class="project-link" href="#contact">Discuss Project →</a>
           </article>
 
-          <article class="card">
-            <h3>SQL Query Collection</h3>
+          <article class="project">
+            <div class="project-top">
+              <span class="project-icon">⚗</span>
+              <h3>Chemical Inventory & Laboratory Management</h3>
+            </div>
+
             <p>
-              Examples of joins, aggregation, subqueries, ranking, and common interview-style
-              database problems, with attention to correctness and readability.
+              Enterprise application supporting chemical inventory and
+              laboratory operations, with database and Linux server support.
             </p>
+
             <div class="tags">
+              <span class="tag">Java</span>
               <span class="tag">Oracle SQL</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">Joins</span>
-              <span class="tag">Window functions</span>
+              <span class="tag">Shell Scripting</span>
+              <span class="tag">Linux</span>
             </div>
-            <p class="project-note">Repository link to be added when published.</p>
-          </article>
 
-          <article class="card">
-            <h3>Production Support Runbook</h3>
-            <p>
-              A structured troubleshooting guide covering incident triage, application status
-              checks, log analysis, dependency checks, communication, and RCA notes.
-            </p>
-            <div class="tags">
-              <span class="tag">Incident management</span>
-              <span class="tag">ServiceNow</span>
-              <span class="tag">Documentation</span>
-            </div>
-            <p class="project-note">Documentation link to be added when published.</p>
+            <a class="project-link" href="#contact">Discuss Project →</a>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="education">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Education</div>
-          <h2>Academic background</h2>
-        </div>
-
-        <article class="card">
-          <h3>Bachelor of Engineering — Electronics and Communication Engineering</h3>
-          <p>Saranathan College of Engineering, Trichy</p>
-          <div class="tags">
-            <span class="tag">2017 – 2021</span>
-            <span class="tag">CGPA: 7.66</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Get in touch</div>
-          <h2>Let's connect</h2>
-          <p>Interested in Java development, application engineering, and production support opportunities.</p>
-        </div>
-
-        <div class="contact-panel">
-          <div>
-            <h3>Rakavi Ramasubbu</h3>
-            <p>Java Developer · Application Support & Engineering</p>
-            <p style="margin-top:8px">
-              www.linkedin.com/in/rakavi-ramasubbu
-            </p>
-          </div>
-
-          <a class="button primary" href="https://github.com/rakavi08"
-             target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    <div class="container">
-      © <span id="year"></span> Rakavi Ramasubbu. Built with HTML and CSS.
+  <!-- Contact -->
+  <footer class="container footer reveal" id="contact">
+    <div class="footer-inner">
+      <div>
+        <h2>Let's Connect</h2>
+        <p>Open to professional opportunities and collaborations.</p>
+        <p>Feel free to reach out.</p>
+      </div>
+
+      <div class="footer-actions">
+        <!-- Replace the example email with your professional email. -->
+        <a class="button button-light"
+           href="mailto:YOUR_EMAIL@example.com">✉ &nbsp; Email Me</a>
+
+        <!-- Replace YOUR_LINKEDIN_USERNAME with your profile username. -->
+        <a class="button button-light"
+           href="https://www.linkedin.com/"
+           target="_blank" rel="noopener noreferrer">in &nbsp; LinkedIn</a>
+
+        <a class="button button-light"
+           href="https://github.com/rakavi08"
+           target="_blank" rel="noopener noreferrer">◉ &nbsp; GitHub</a>
+
+        <a class="button button-gold"
+           href="mailto:YOUR_EMAIL@example.com">Contact Me ↗</a>
+
+        <!-- Add your resume.pdf to this repository before enabling this link. -->
+        <!-- <a class="button button-gold" href="resume.pdf" download>↓ Download Resume</a> -->
+      </div>
     </div>
   </footer>
 
+  <p class="container copyright">
+    © <span id="year"></span> Rakavi Ramasubbu. All rights reserved.
+  </p>
+
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Subtle scroll animations
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add("visible"));
+    }
+
+    // Active navigation link
+    const sections = document.querySelectorAll("main section[id], footer[id]");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navItems.forEach(link => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + entry.target.id
+              );
+            });
+          }
+        });
+      }, { rootMargin: "-25% 0px -60% 0px" });
+
+      sections.forEach(section => sectionObserver.observe(section));
+    }
   </script>
+
 </body>
 </html>
